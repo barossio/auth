@@ -9,12 +9,12 @@
 
 -create server/config.js
 
->
->//config.js
->module.exports = {
->  secret : 'xxxxxxx'
->}
->
+> 
+> //config.js     
+> module.exports = {  
+>  secret : 'xxxxxxx'       
+> }   
+>   
 
 
 
