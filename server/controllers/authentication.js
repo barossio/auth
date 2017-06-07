@@ -1,11 +1,13 @@
 const jwt = require('jwt-simple');
 const User = require('../models/user');
 const config = require('../config');
+const moment =  require('moment');
 
 function tokenForUser(user){
   const timestamp = new Date().getTime();
+  const expires = moment().add('days', 1).valueOf();
   //sub == subject  , iat = issue at time
-  return jwt.encode({ sub: user.id , iat : timestamp } , config.secret);
+  return jwt.encode({ sub: user.id , iat : timestamp , exp : expires } , config.secret);
 }
 
 exports.signin = function(req , res , next){

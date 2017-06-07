@@ -49,7 +49,7 @@ doClear (){
 }
 
   render() {
-    const {handleSubmit, pristine, reset ,invalid, submitting} = this.props;
+    const {handleSubmit, pristine ,invalid, submitting} = this.props;
     return (
       <div className="Signup col-sm-4">
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -92,7 +92,7 @@ function validate (values){
    errors.passwordconfirm = "Enter a Password Comfirm!";
  }
 
- if(values.password != values.passwordconfirm){
+ if(values.password !== values.passwordconfirm){
    errors.passwordconfirm = "Password and Password Comfirm mismatch";
  }
 

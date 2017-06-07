@@ -1,14 +1,15 @@
 import React , {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 export default function(ComposedComponent){
   class Authentication extends Component {
     static contextTypes = {
-      router : React.PropTypes.object
+      router : PropTypes.object
     }
 
     componentWillMount() {
-      console.log(this.props.authenticated);
+    //  console.log(this.props.authenticated);
       if(!this.props.authenticated){
           this.context.router.history.push('/');
       }
@@ -22,7 +23,7 @@ export default function(ComposedComponent){
     }
 
     render(){
-        console.log(this.context);
+      //  console.log(this.context);
       //console.log('this.props.authenticated',this.props.authenticated);
       return <ComposedComponent {... this.props} />
     }

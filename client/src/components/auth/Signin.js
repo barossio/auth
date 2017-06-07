@@ -50,7 +50,7 @@ doClear (){
 }
 
   render() {
-    const {handleSubmit, pristine, reset ,invalid, submitting} = this.props;
+    const {handleSubmit, pristine,submitting} = this.props;
     return (
       <div className="Signin col-sm-4">
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -71,7 +71,7 @@ doClear (){
   }
 }
 
-function validate (values){
+/*function validate (values){
 //  console.log(values);
   const errors = {};
   //validate
@@ -87,7 +87,7 @@ function validate (values){
 
   //if errors is empty  ok
   return errors;
-}
+}*/
 
 function mapStateToProps(state) {
   return { errorMessage : state.auth.error}

@@ -35,6 +35,12 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload , done){
   User.findById(payload.sub , function(err ,user){
     if(err) { return done(err,false);}
 
+    //console.log('payload.exp',payload.exp);
+    if(!payload.exp || payload.exp<= Date.now()){
+
+        done(null , false);
+    }
+
     if(user) {
       done(null , user);
     }else{
